@@ -1,0 +1,34 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Create Post
+{% endblock %}
+
+{% block content %}
+  <h1>Irisia's Blog</h1>
+
+  <h3>Create Post</h3>
+  
+  <form>
+    <label>Post Title</label>
+    <br>
+    <input type="text" placeholder="Post Title">
+    <br>
+    <label>Content</label>
+    <br>
+    <input type="text" placeholder="Content">
+    <br>
+    <label>Category</label>
+    <br>
+    <select class="form-control" id="exampleFormControlSelect1">
+        <option>1</option>
+        <option>2</option>
+    </select>
+    <br>
+    <label for="exampleFormControlFile1">Attach image</label>
+    <br>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    <button type="button">Submit</button>
+  </form>
+  
+{% endblock %}
