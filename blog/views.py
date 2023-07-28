@@ -7,8 +7,8 @@ from django.shortcuts import render, get_object_or_404
 
 
 def home(request):
-  template = loader.get_template('main.html')
-  return HttpResponse(template.render())
+  characters = Character.objects.all()
+  return render(request, 'main.html', {'characters': characters})
 
 def post(request):
   template = loader.get_template('posts.html')
@@ -33,11 +33,12 @@ def create_character(request):
       backstory = request.POST.get('backstory')
 
       character = Character.objects.create(name=name, age=age, personality=personality,background=background, goals=goals, strengths=strengths, weakness=weakness, skills=skills, hobbies=hobbies, backstory=backstory)
+      characters = Character.objects.all()
+      print(characters)
 
-      return render(request, 'main.html', {'character': character})
+      return render(request, 'main.html', {'characters': characters})
    
    return render(request, 'character_form.html')
-
 
 def character_detail(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
