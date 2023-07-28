@@ -1,0 +1,11 @@
+{% extends "master.html" %}
+
+{% block title %}
+  {{ Character.name }}
+{% endblock %}
+
+
+{% block content %}
+  <h1> {{ Character.name }} </h1>
+  <p>{{ Character.background }}</p>
+{% endblock %}

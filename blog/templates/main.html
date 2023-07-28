@@ -11,5 +11,11 @@
   <h3>Feed</h3>
   
   <p>Check all of Irisia's <a href="posts/">Posts</a></p>
-  
+
+  <h3>Character List</h3>
+  <ul>
+    {% for Character in Character %}
+    <li><a href="{% url 'character/' character.id %}">{{ Character.name }}</a></li>
+    {% endfor %}
+  </ul>
 {% endblock %}
