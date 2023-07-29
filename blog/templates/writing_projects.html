@@ -6,17 +6,20 @@
 
 
 {% block content %}
-  <h1>Irisia's Blog</h1>
-
-  <h3>Feed</h3>
+  <h1>Irisia's Writing Projects</h1>
   
-  <p>Check all of Irisia's <a href="posts/">Posts</a></p>
-  <a href="writing-projects/">Writing Projects</a>
 
   <h3>Character List</h3>
   <ul>
     {% for character in characters %}
     <li><a href="{% url 'character-detail' character.id %}">{{ character.name }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <h3>Lore List</h3>
+  <ul>
+    {% for lore in lores %}
+    <li><a href="{% url 'lore-detail' lore.id %}">{{ lore.worldname }}</a></li>
     {% endfor %}
   </ul>
 {% endblock %}

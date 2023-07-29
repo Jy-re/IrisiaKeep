@@ -9,7 +9,7 @@ class CharacterForm(forms.ModelForm):
 class LoreForm(forms.ModelForm):
     class Meta:
         model = Lore
-        fields = ['world_name','overview', 'geography', 'culture_society', 'history', 'magic_tech', 'politics', 'economy', 'creatures', 'language', 'arts', 'miscellaneous', 'image']
+        fields = ['worldname','overview', 'geography', 'culturesociety', 'history', 'magictech', 'politics', 'economy', 'creatures', 'language', 'arts', 'miscellaneous', 'image']
 
 class BookForm(forms.ModelForm):
     class Meta:
