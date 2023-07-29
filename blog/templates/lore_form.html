@@ -1,0 +1,64 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Add Lore
+{% endblock %}
+
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %} 
+    <div>
+        <label for="id_worldname">World Name:</label>
+        <input type="text" id="id_worldname" name="worldname">
+    </div>
+
+    <div>
+        <label for="id_overview">World Overview:</label>
+        <input type="text" id="id_overview" name="overview">
+    </div>
+    <div>
+        <label for="id_geography">Geography:</label>
+        <input type="text" id="id_geography" name="geography">
+    </div>
+    <div>
+        <label for="id_culturesociety">Culture and Society:</label>
+        <input type="text" id="id_culturesociety" name="culturesociety">
+    </div>
+    <div>
+        <label for="id_history">History:</label>
+        <input type="text" id="id_history" name="history">
+    </div>
+    <div>
+        <label for="id_magictech">Magic and Technology:</label>
+        <input type="text" id="id_magictech" name="magictech">
+    </div>
+    <div>
+        <label for="id_politics">Politics and Factions:</label>
+        <input type="text" id="id_politics" name="politics">
+    </div>
+    <div>
+        <label for="id_economy">Economy and Trade:</label>
+        <input type="text" id="id_economy" name="economy">
+    </div>
+    <div>
+        <label for="id_creatures">Creatures and Beasts:</label>
+        <input type="text" id="id_creatures" name="creatures">
+    </div>
+    <div>
+        <label for="id_languange">Language:</label>
+        <input type="text" id="id_language" name="language">
+    </div>
+    <div>
+        <label for="id_arts">Arts and Entertainment:</label>
+        <input type="text" id="id_arts" name="arts">
+    </div>
+    <div>
+        <label for="id_miscellaneous">Miscellaneous:</label>
+        <input type="text" id="id_miscellaneous" name="miscellaneous">
+    </div>
+    <button type="submit">Save</button>
+</form>
+    
+{% endblock %}

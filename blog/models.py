@@ -14,12 +14,12 @@ class Character(models.Model):
     image = models.FileField(blank=True)
 
 class Lore(models.Model):
-    world_name = models.CharField(max_length=225)
+    worldname = models.CharField(max_length=225)
     overview = models.TextField()
     geography = models.TextField()
-    culture_society = models.TextField()
+    culturesociety = models.TextField()
     history = models.TextField()
-    magic_tech = models.TextField()
+    magictech = models.TextField()
     politics = models.TextField()
     economy = models.TextField()
     creatures = models.TextField()
