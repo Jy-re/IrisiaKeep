@@ -5,6 +5,7 @@ class CharacterForm(forms.ModelForm):
     class Meta:
         model = Character
         fields = ['name', 'age', 'personality', 'background', 'goals', 'strengths', 'weakness', 'skills', 'hobbies', 'backstory', 'image']
+        
 
 class LoreForm(forms.ModelForm):
     class Meta:
@@ -12,14 +13,15 @@ class LoreForm(forms.ModelForm):
         fields = ['worldname','overview', 'geography', 'culturesociety', 'history', 'magictech', 'politics', 'economy', 'creatures', 'language', 'arts', 'miscellaneous', 'image']
 
 class BookForm(forms.ModelForm):
-    class Meta:
-        model: Book
-        fields = ['plot', 'author', 'date_started', 'date_ended', 'image']
+    characters = forms.ModelMultipleChoiceField(
+        queryset=Character.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
+    )
 
-    def __init__(self, *args, **kwargs):
-        super(BookForm, self).__init__(*args, **kwargs)
-        self.fields['world_name'].queryset = Lore.objects.all()
-        self.fields['name'].queryset = Character.objects.all()
+    class Meta:
+        model = Book
+        fields = ['title', 'plot', 'author', 'datestart', 'lore', 'characters', 'image']
 
 class PostForm(forms.ModelForm):
     class Meta:

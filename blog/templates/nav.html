@@ -5,10 +5,12 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-        <a class="nav-item nav-link" href="..">Home</span></a>
+        <a class="nav-item nav-link" href="{% url 'home' %}">Home</span></a>
         <a class="nav-item nav-link" href="{% url 'writing-projects' %}">Observatory</a>
         <a class="nav-item nav-link" href="posts/">Castle</a>
-        <a class="nav-item nav-link" href="create-post/">Create Post</a>
+        <a class="nav-item nav-link" href="{% url 'create-character'%}">Create Character</a>
+        <a class="nav-item nav-link" href="{% url 'create-lore'%}">Create Lore</a>
+        <a class="nav-item nav-link" href="{% url 'create-book'%}">Create Book</a>
     </div>
     </div>
 </nav>
