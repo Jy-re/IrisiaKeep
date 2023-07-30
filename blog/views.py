@@ -14,7 +14,7 @@ def post(request):
   return HttpResponse(template.render())
 
 def wprojects(request):
-  books = Lore.objects.all()
+  books = Book.objects.all()
   print(books)
   characters = Character.objects.all()
   lores = Lore.objects.all()
