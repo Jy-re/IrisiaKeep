@@ -1,0 +1,50 @@
+<!-- book_form.html -->
+
+{% extends "master.html" %}
+
+{% block title %}
+  Add Book
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %} 
+
+    <div>
+        <label for="id_title">Book Title:</label>
+        <input id="id_title" name="title">
+    </div>
+    <div>
+        <label for="id_plot">Plot:</label>
+        <textarea id="id_plot" name="plot"></textarea>
+    </div>
+    <div>
+        <label for="id_author">Author:</label>
+        <input id="id_author" name="author">
+    </div>
+    <div>
+        <label for="id_datestart">Date Start:</label>
+        <input type="date" id="id_datestart" name="datestart">
+    </div>
+    <div>
+        <label for="id_lore">Lore:</label>
+        <select id="id_lore" name="lore">  <!-- Corrected field name to 'id_lore' -->
+            <option value="" selected disabled>Select a Lore</option>
+            {% for lore in lores %}
+              <option value="{{ lore.id }}">{{ lore.worldname }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="id_characters">Characters:</label>
+        <select id="id_characters" name="characters" multiple>  <!-- Corrected field name to 'id_characters' and added 'multiple' attribute for multiple selection -->
+            {% for character in characters %}
+              <option value="{{ character.id }}">{{ character.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit">Save</button>
+</form>
+    
+{% endblock %}

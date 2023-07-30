@@ -29,12 +29,12 @@ class Lore(models.Model):
     image = models.FileField(blank=True)
 
 class Book(models.Model):
+    title = models.CharField(max_length=225, null=True)
     plot = models.TextField()
     author = models.CharField(max_length=225)
-    date_started = models.DateField()
-    date_ended = models.DateField()
+    datestart = models.DateField()
     lore = models.ForeignKey(Lore, on_delete=models.CASCADE)
-    characters = models.ForeignKey(Character, on_delete=models.CASCADE)
+    characters = models.ManyToManyField(Character)  # Update to ManyToManyField
     image = models.FileField(blank=True)
 
 class Post(models.Model):

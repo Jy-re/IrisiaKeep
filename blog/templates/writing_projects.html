@@ -8,6 +8,12 @@
 {% block content %}
   <h1>Irisia's Writing Projects</h1>
   
+  <h3>Book List</h3>
+  <ul>
+    {% for book in books %}
+    <li><a href="{% url 'book-detail' book.id %}">{{ book.title }}</a></li>
+    {% endfor %}
+  </ul>
 
   <h3>Character List</h3>
   <ul>
@@ -22,4 +28,6 @@
     <li><a href="{% url 'lore-detail' lore.id %}">{{ lore.worldname }}</a></li>
     {% endfor %}
   </ul>
+
+  
 {% endblock %}
