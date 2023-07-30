@@ -1,8 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render, redirect
-from .forms import CharacterForm
-from .models import Character, Lore
+from .models import Character, Lore, Book
 from django.shortcuts import render, get_object_or_404
 
 
@@ -15,9 +14,11 @@ def post(request):
   return HttpResponse(template.render())
 
 def wprojects(request):
+  books = Lore.objects.all()
+  print(books)
   characters = Character.objects.all()
   lores = Lore.objects.all()
-  return render(request, 'writing_projects.html', {'characters': characters, 'lores': lores})
+  return render(request, 'writing_projects.html', {'books':books, 'characters': characters, 'lores': lores, })
 
 def create(request):
   template = loader.get_template('create_post.html')
@@ -75,3 +76,32 @@ def create_lore(request):
 def lore_detail(request, lore_id):
     lore = get_object_or_404(Lore, pk=lore_id)
     return render(request, 'lore_details.html', {'lore': lore})
+
+def create_book(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        plot = request.POST.get('plot')
+        author = request.POST.get('author')
+        datestart = request.POST.get('datestart')
+        lore = request.POST.get('lore')
+        characters = request.POST.getlist('characters')  # Use getlist() to get multiple selected values
+
+        characters = [get_object_or_404(Character, pk=char_id) for char_id in characters]
+        lore = get_object_or_404(Lore, pk=lore)
+
+        book = Book.objects.create(title=title, plot=plot, author=author, datestart=datestart, lore=lore)
+        book.characters.set(characters)  # Use the set() method to set the many-to-many relationship
+        book.save()
+
+        books = Book.objects.all()
+        print(books)
+
+        return render(request, 'main.html', {'books': books})
+
+    characters = Character.objects.all()
+    lores = Lore.objects.all()
+    return render(request, 'book_form.html', {'characters': characters, 'lores': lores})
+  
+def book_detail(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    return render(request, 'book_details.html', {'book': book})
