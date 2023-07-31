@@ -1,0 +1,25 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Add Book
+{% endblock %}
+
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %} 
+
+    <div>
+        <label for="id_title">Post Title</label>
+        <input id="id_title" name="title">
+    </div>
+    <div>
+        <label for="id_content">Content:</label>
+        <textarea id="id_content" name="content"></textarea>
+    </div>
+    
+    <button type="submit">Save</button>
+</form>
+    
+{% endblock %}

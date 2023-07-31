@@ -38,6 +38,6 @@ class Book(models.Model):
     image = models.FileField(blank=True)
 
 class Post(models.Model):
-    title = models.CharField(max_length=225)
+    title = models.CharField(max_length=225, null=True)
     content = models.TextField()
     image = models.FileField(blank=True)

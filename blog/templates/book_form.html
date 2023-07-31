@@ -36,14 +36,13 @@
             {% endfor %}
         </select>
     </div>
-    <div>
+    <div id="character-fields-container">
         <label for="id_characters">Characters:</label>
         <select id="id_characters" name="characters" multiple>  <!-- Corrected field name to 'id_characters' and added 'multiple' attribute for multiple selection -->
             {% for character in characters %}
               <option value="{{ character.id }}">{{ character.name }}</option>
             {% endfor %}
         </select>
-    </div>
     <button type="submit">Save</button>
 </form>
     

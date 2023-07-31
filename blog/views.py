@@ -1,17 +1,14 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render, redirect
-from .models import Character, Lore, Book
+from .models import Character, Lore, Book, Post
 from django.shortcuts import render, get_object_or_404
 
 
 def home(request):
-  characters = Character.objects.all()
-  return render(request, 'main.html', {'characters': characters})
+  posts = Post.objects.all()
+  return render(request, 'main.html', {'posts':posts})
 
-def post(request):
-  template = loader.get_template('posts.html')
-  return HttpResponse(template.render())
 
 def wprojects(request):
   books = Book.objects.all()
@@ -19,10 +16,6 @@ def wprojects(request):
   characters = Character.objects.all()
   lores = Lore.objects.all()
   return render(request, 'writing_projects.html', {'books':books, 'characters': characters, 'lores': lores, })
-
-def create(request):
-  template = loader.get_template('create_post.html')
-  return HttpResponse(template.render())
 
 
 def create_character(request):
@@ -105,3 +98,18 @@ def create_book(request):
 def book_detail(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     return render(request, 'book_details.html', {'book': book})
+
+def create_post(request):
+   if request.method == 'POST':
+      title = request.POST.get('title')
+      content = request.POST.get('content')
+
+      post = Post.objects.create(title=title, content=content)
+      posts = Post.objects.all()
+
+      return render(request, 'main.html', {'posts':posts})
+   return render(request, 'post_form.html')
+
+def post_detail(request, post_id):
+   post = get_object_or_404(Post, pk=post_id)
+   return render(request, 'post_details.html', {'post':post})

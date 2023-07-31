@@ -13,10 +13,10 @@
   <p>Check all of Irisia's <a href="posts/">Posts</a></p>
   <a href="writing-projects/">Writing Projects</a>
 
-  <h3>Character List</h3>
+  <h3> Recent Posts </h3>
   <ul>
-    {% for character in characters %}
-    <li><a href="{% url 'character-detail' character.id %}">{{ character.name }}</a></li>
+    {% for post in posts %}
+    <li><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
 {% endblock %}
