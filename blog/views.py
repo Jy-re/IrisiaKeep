@@ -9,6 +9,9 @@ def home(request):
   posts = Post.objects.all()
   return render(request, 'main.html', {'posts':posts})
 
+def castle(request):
+  posts = Post.objects.all()
+  return render(request, 'castle.html', {'posts':posts})
 
 def wprojects(request):
   books = Book.objects.all()
@@ -103,8 +106,9 @@ def create_post(request):
    if request.method == 'POST':
       title = request.POST.get('title')
       content = request.POST.get('content')
+      image = request.POST.get('image')
 
-      post = Post.objects.create(title=title, content=content)
+      post = Post.objects.create(title=title, content=content, image=image)
       posts = Post.objects.all()
 
       return render(request, 'main.html', {'posts':posts})

@@ -40,4 +40,4 @@ class Book(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=225, null=True)
     content = models.TextField()
-    image = models.FileField(blank=True)
+    image = models.FileField(upload_to='media/')

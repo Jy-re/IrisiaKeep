@@ -6,7 +6,9 @@
 
 
 {% block content %}
-  <h1>Irisia's Blog</h1>
+  <div>
+    <h1>Irisia's Blog</h1>
+  </div>
 
   <h3>Feed</h3>
   
@@ -14,9 +16,14 @@
   <a href="writing-projects/">Writing Projects</a>
 
   <h3> Recent Posts </h3>
-  <ul>
+  <div class="container" style=" width: 90rem; display: flex; flex-direction: row; flex-wrap: wrap;">
     {% for post in posts %}
-    <li><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></li>
+      <div class="card" style="width: 20rem; background-color: azure; border-style: solid; margin-left: 10px; margin-bottom: 10px;">
+        <a href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
+        <p class="card-text">{{ post.content }}</p>
+      </div>
     {% endfor %}
-  </ul>
+  </div>
+  
+
 {% endblock %}
