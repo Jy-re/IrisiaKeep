@@ -16,7 +16,7 @@
   <a href="writing-projects/">Writing Projects</a>
 
   <h3> Recent Posts </h3>
-  <div class="container" style=" width: 90rem; display: flex; flex-direction: row; flex-wrap: wrap;">
+  <div class="container-fluid cardiv">
     {% for post in posts %}
       <div class="card" style="width: 20rem; background-color: azure; border-style: solid; margin-left: 10px; margin-bottom: 10px;">
         <a href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
