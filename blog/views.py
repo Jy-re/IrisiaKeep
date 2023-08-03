@@ -106,7 +106,7 @@ def create_post(request):
    if request.method == 'POST':
       title = request.POST.get('title')
       content = request.POST.get('content')
-      image = request.POST.get('image')
+      image = request.FILES.get('image')
 
       post = Post.objects.create(title=title, content=content, image=image)
       posts = Post.objects.all()

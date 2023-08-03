@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<form method="post">
+<form method="post" action="{% url 'create-post' %}" enctype="multipart/form-data">
     {% csrf_token %} 
 
     <div>
@@ -18,9 +18,8 @@
         <label for="id_content">Content:</label>
         <textarea id="id_content" name="content"></textarea>
     </div>
-        <input type="file" name="image" id="image" accept="image/*">
     <div>
-
+        <input type="file" name="image" id="image" accept="image/*">
     </div>
     
     <button type="submit" value="Upload">Save</button>

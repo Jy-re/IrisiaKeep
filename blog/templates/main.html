@@ -1,17 +1,11 @@
 {% extends "master.html" %}
 
 {% block title %}
-  Homepage
+  Add Book
 {% endblock %}
 
-
 {% block content %}
-  <div>
-    <h1>Irisia's Blog</h1>
-  </div>
-
   <h3>Feed</h3>
-  
   <p>Check all of Irisia's <a href="posts/">Posts</a></p>
   <a href="writing-projects/">Writing Projects</a>
 
@@ -19,11 +13,14 @@
   <div class="container-fluid cardiv">
     {% for post in posts %}
       <div class="card" style="width: 20rem; background-color: azure; border-style: solid; margin-left: 10px; margin-bottom: 10px;">
+        {% if post.image %}
+          <img src="{{ post.image.url }}" alt="Post Image">
+        {% else %}
+          <p>No image available</p>
+        {% endif %}
         <a href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
         <p class="card-text">{{ post.content }}</p>
       </div>
     {% endfor %}
   </div>
-  
-
 {% endblock %}
