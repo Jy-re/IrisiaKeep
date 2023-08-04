@@ -1,26 +1,61 @@
 {% extends "master.html" %}
 
 {% block title %}
-  Add Book
+  Irisia's Keep
 {% endblock %}
 
 {% block content %}
-  <h3>Feed</h3>
-  <p>Check all of Irisia's <a href="posts/">Posts</a></p>
-  <a href="writing-projects/">Writing Projects</a>
-
-  <h3> Recent Posts </h3>
-  <div class="container-fluid cardiv">
-    {% for post in posts %}
-      <div class="card" style="width: 20rem; background-color: azure; border-style: solid; margin-left: 10px; margin-bottom: 10px;">
-        {% if post.image %}
-          <img src="{{ post.image.url }}" alt="Post Image">
-        {% else %}
-          <p>No image available</p>
-        {% endif %}
-        <a href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
-        <p class="card-text">{{ post.content }}</p>
-      </div>
-    {% endfor %}
+  {% load static %}
+  <div class="bg-colorsss">
+    <div class="welcome-contain" style="text-align: center; margin-top: 80px; margin-bottom: 80px;">
+      <h3 class="welcome" style="font-family: Georgia; font-size: xx-large; font-weight: bold;">WELCOME TO IRISIA'S KEEP</h3>
+    </div>
+    
+      <nav class="navi">
+        
+        <div class="d-flex justify-content-around">
+          <div class="navi-item-contain">
+            <div>
+              <image src="{% static 'images/Observatory.png' %}"></image>
+            </div>
+            <div class="navi-text" style="background-color: aliceblue;">
+              <a href="{% url 'writing-projects' %}">Observatory</a>
+            </div>
+          </div>
+          <div class="navi-item-contain">
+            <div>
+              <image src="{% static 'images/Village.png' %}"></image>
+            </div>
+            <div class="navi-text">
+              <a href="{% url 'writing-projects' %}">Village</a>
+            </div>
+          </div>
+          <div class="navi-item-contain">
+            <div>
+              <image src="{% static 'images/Castle.png' %}"></image>
+            </div>
+            <div class="navi-text">
+              <a href="{% url 'castle' %}">Castle</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    
+  
+    <h3 class="overview-text">OVERVIEW</h3>
+    <div class="container-fluid cardiv">
+      {% for post in posts %}
+        <div class="card" style="width: 20rem; background-color: azure; border-style: solid; margin-left: 10px; margin-bottom: 10px;">
+          {% if post.image %}
+            <img src="{{ post.image.url }}" alt="Post Image">
+          {% else %}
+            <p>No image available</p>
+          {% endif %}
+          <a href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
+          <p class="card-text">{{ post.content }}</p>
+        </div>
+      {% endfor %}
+    </div>
   </div>
+  
 {% endblock %}

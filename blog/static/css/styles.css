@@ -1,6 +1,26 @@
-
 h1{
     color: aquamarine;
+    
+}
+
+.overview-text{
+    text-align: center; 
+    font-family: Georgia; 
+    font-weight: bold; 
+    margin-top: 50px;
+}
+
+.navi-item-contain{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.navi-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
 }
 
 .cardiv{
