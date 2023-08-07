@@ -8,7 +8,8 @@
   {% load static %}
   <div class="backcolor">
     <div class="welcome-contain" style="text-align: center; margin-top: 80px; margin-bottom: 80px;">
-      <h3 class="welcome" style="font-family: Georgia; font-size: xx-large; font-weight: bold; color: #65307E;">WELCOME TO IRISIA'S KEEP</h3>
+      <h3 class="welcome" style="font-family: Georgia; font-size: xx-large; font-weight: bold; color: #65307E;">✨ WELCOME TO IRISIA'S KEEP ✨</h3>
+      <hr>
     </div>
     
       <nav class="navi">
@@ -42,6 +43,31 @@
       </nav>
   
     <h3 class="overview-text" style="color: #65307E;">OVERVIEW</h3>
+    
+    <div class="overview-content-container">
+      <div class="element-overview">
+        <img src="{% static 'images/Castle.png' %}">
+        <div class="destination-overview">
+          <h3>The Castle</h3>
+          <p>The castle is where you want to ......</p>
+        </div>
+      </div>
+      <div class="element-overview">
+        <img src="{% static 'images/Observatory.png' %}">
+        <div class="destination-overview">
+          <h3>The Observatory</h3>
+          <p>The observatory is where you want to ......</p>
+        </div>
+      </div>
+      <div class="element-overview">
+        <img src="{% static 'images/Village.png' %}">
+        <div class="destination-overview">
+          <h3>The Village</h3>
+          <p>The castle is where you want to ......</p>
+        </div>
+      </div>
+    </div>
+
     <div class="container-fluid cardiv">
       {% for post in posts %}
         <div class="card" style="width: 20rem; border-style: solid; margin-left: 10px; margin-bottom: 10px;">
@@ -56,5 +82,37 @@
       {% endfor %}
     </div>
   </div>
+
+  <style>
+
+    hr{
+      margin-top: 30px;
+      border-color: #65307E;
+      width: 80%;
+    }
+
+    .overview-content-container{
+      width: 80%;
+      margin-left: 8%;
+      margin-right: 8%;
+    }
+
+    .element-overview{
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 50px;
+      align-items: center;
+    }
+
+    .destination-overview{
+      font-family: Georgia;
+      color: #65307E;
+      height: 210px;
+      justify-content: center;
+      margin-left: 50px;
+      margin-top: 10%;
+    }
+
+  </style>
   
 {% endblock %}

@@ -1,8 +1,17 @@
+h1{
+    color: aqua;
+}
+
 .overview-text{
     text-align: center; 
     font-family: Georgia; 
     font-weight: bold; 
     margin-top: 50px;
+}
+
+.element-overview{
+    display: flex;
+    flex-direction: row;
 }
 
 .navi-item-contain{
@@ -15,7 +24,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
 }
 
 
