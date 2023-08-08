@@ -9,10 +9,7 @@ h1{
     margin-top: 50px;
 }
 
-.element-overview{
-    display: flex;
-    flex-direction: row;
-}
+
 
 .navi-item-contain{
     display: flex;

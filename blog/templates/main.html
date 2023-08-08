@@ -12,58 +12,32 @@
       <hr>
     </div>
     
-      <nav class="navi">
-        
-        <div class="d-flex justify-content-around">
-          <div class="navi-item-contain">
-            <div>
-              <image src="{% static 'images/Observatory.png' %}"></image>
-            </div>
-            <div class="navi-text" style="background-color: transparent;">
-              <a class="text" href="{% url 'writing-projects' %}" style="color: #65307E; font-family: Georgia; font-size: 20px; font-weight: bold;">Observatory</a>
-            </div>
-          </div>
-          <div class="navi-item-contain">
-            <div>
-              <image src="{% static 'images/Village.png' %}"></image>
-            </div>
-            <div class="navi-text" style="background-color: transparent;">
-              <a class="text" href="{% url 'writing-projects' %}" style="color: #65307E; font-family: Georgia; font-size: 20px; font-weight: bold;">Village</a>
-            </div>
-          </div>
-          <div class="navi-item-contain">
-            <div>
-              <image src="{% static 'images/Castle.png' %}"></image>
-            </div>
-            <div class="navi-text" style="background-color: transparent;">
-              <a class="text" href="{% url 'castle' %}" style="color: #65307E; font-family: Georgia; font-size: 20px; font-weight: bold;">Castle</a>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <div class="homepage-description">
+      <p class="welcome-message">Welcome to Irisia's Keep! This is where December Iris keeps the archives of her creations. Different worlds she created, the characters whom she treats as the villagers of the Irisian Kingdom and the people of the Neighboring Kingdoms. All the stories she weaved will be kept here and it all takes place in Irisia. The Kingdom is still under development and more places will be added soon. For now you can choose your destination below and meet wonderful people along the way. Enjoy your stay!</p>
+    </div>
   
-    <h3 class="overview-text" style="color: #65307E;">OVERVIEW</h3>
+    <h3 class="overview-text" style="color: #65307E;">Where do you want to go?</h3>
     
     <div class="overview-content-container">
       <div class="element-overview">
         <img src="{% static 'images/Castle.png' %}">
         <div class="destination-overview">
-          <h3>The Castle</h3>
-          <p>The castle is where you want to ......</p>
+          <a class="navi-titles" href="{% url 'castle' %}">The Castle</a>
+          <p>There are four places in the castle, The bulletin board, kitchen, garden and the royal library</p>
         </div>
       </div>
       <div class="element-overview">
         <img src="{% static 'images/Observatory.png' %}">
         <div class="destination-overview">
-          <h3>The Observatory</h3>
-          <p>The observatory is where you want to ......</p>
+          <a class="navi-titles" href="{% url 'writing-projects' %}">The Observatory</a>
+          <p>The observatory is where you can find all the neighboring Kingdoms, creatures and fauna. It is the encyclopedia of the Irisian World</p>
         </div>
       </div>
       <div class="element-overview">
         <img src="{% static 'images/Village.png' %}">
         <div class="destination-overview">
-          <h3>The Village</h3>
-          <p>The castle is where you want to ......</p>
+          <a class="navi-titles" href="{% url 'writing-projects' %}">The Village</a>
+          <p>The castle is where you can meet the villagers. Their home and their shops</p>
         </div>
       </div>
     </div>
@@ -89,6 +63,36 @@
       margin-top: 30px;
       border-color: #65307E;
       width: 80%;
+    }
+    
+    .homepage-description{
+      padding: 2.5%;
+      position: relative;
+      margin-left: 10%;
+      margin-right: 10%;
+      background-color: azure;
+      width: 80%;
+      word-spacing: 0.5rem;
+      border-radius: 50px;
+      border-style: solid;
+      border-width: thin;
+      border-color: #65307E; 
+    }
+
+    .navi-titles{
+      font-size: 30px;
+      font-weight: bold;
+      color: #65307E;
+    }
+
+    .welcome-message{
+      font-family: Georgia;
+      font-size: 20px;
+    }
+
+    .navi-titles:hover{
+      color: rgb(171, 104, 177);
+      text-decoration: none;
     }
 
     .overview-content-container{
