@@ -7,50 +7,63 @@
 
 {% block content %}
 
+<h2>Add a Character</h2>
+
 <form method="post">
     {% csrf_token %} 
 
-    <div>
+    <div class="label-input">
         <label for="id_name">Character Name:</label>
         <input id="id_name" name="name">
     </div>
-    <div>
+    <div class="label-input">
         <label for="id_age">Age:</label>
         <input type="number" id="id_age" name="age">
     </div>
-    <div>
+    <div class="label-input">
         <label for="id_personality">Personality:</label>
         <textarea id="id_personality" name="personality"></textarea>
     </div>
-    <div>
+    <div class="label-input">
         <label for="id_background">Background:</label>
         <textarea id="id_background" name="background"></textarea>
     </div>
-    <div>
+    <div class="label-input">
         <label for="id_goals">Goals:</label>
         <textarea id="id_goals" name="goals"></textarea>
     </div>
-    <div>
+    <div class="label-input">
         <label for="id_strengths">Strengths:</label>
         <textarea id="id_strengths" name="strengths"></textarea>
     </div>
-    <div>
+    <div class="label-input">
         <label for="id_weakness">Weakness:</label>
         <textarea id="id_weakness" name="weakness"></textarea>
     </div>
-    <div>
+    <div class="label-input">
         <label for="id_skills">Skills/Talents:</label>
         <textarea id="id_skills" name="skills"></textarea>
     </div>
-    <div>
+    <div class="label-input">
         <label for="id_hobbies">Hobbies:</label>
         <textarea id="id_hobbies" name="hobbies"></textarea>
     </div>
-    <div>
+    <div class="label-input">
         <label for="id_backstory">Backstory:</label>
         <textarea id="id_backstory" name="backstory"></textarea>
     </div>
     <button type="submit">Save</button>
 </form>
+
+<style>
+    .label-input{
+        margin-bottom: 5%;
+        display: flex;
+        flex-direction: column;
+    }
+    form{
+        margin: 5% 20% 10% 20%;
+    }
+</style>
     
 {% endblock %}
